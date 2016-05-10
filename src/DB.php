@@ -41,4 +41,37 @@ class DB
             'upsert' => true
         ]);
     }
+
+    public function getAvailableApps()
+    {
+        $data = $this->instance->selectCollection('actions')->distinct('app_id');
+
+        if (!is_array($data)) {
+            return [];
+        }
+
+        return $data;
+    }
+
+    public function getStatsForApp($app_name)
+    {
+        $collection = $this->instance->selectCollection('actions');
+        $data = $collection->aggregate([
+            ['$match' => [
+                'app_id' => $app_name
+            ]],
+            ['$group' => [
+                '_id' => '$action_name',
+                'amount' => [
+                    '$sum' => '$amount'
+                ]
+            ]]
+        ]);
+
+        if (!empty($data['result'])) {
+            return $data['result'];
+        }
+
+        return [];
+    }
 }
