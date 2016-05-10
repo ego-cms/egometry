@@ -23,9 +23,11 @@ $app->get('/{app_id}/{action_name}', function(Request $request, Response $respon
     $db = new \app\DB();
     $db->saveAction($action);
 
-    $response->getBody()->write('app_id = ' . $app_id . '<br/>action_name = ' . $action_name);
-
-    return $response;
+    return $response->withJson([
+        'status' => 'accepted',
+        'app_id' => $app_id,
+        'action' => $action_name
+    ]);
 });
 
 $app->run();
