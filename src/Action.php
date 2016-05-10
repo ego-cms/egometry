@@ -15,9 +15,15 @@ class Action
      */
     private $actor;
 
-    public function __construct(Actor $actor)
+    /**
+     * @var string $action_name
+     */
+    private $action_name;
+
+    public function __construct(Actor $actor, $action_name)
     {
         $this->actor = $actor;
+        $this->action_name = $action_name;
     }
 
     /**
@@ -28,5 +34,15 @@ class Action
     public function getActor()
     {
         return $this->actor;
+    }
+
+    /**
+     * returns action name
+     *
+     * @return string
+     */
+    public function getActionName()
+    {
+        return $this->action_name;
     }
 }

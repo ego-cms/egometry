@@ -18,7 +18,10 @@ $app->get('/{app_id}/{action_name}', function(Request $request, Response $respon
     $action_name = $request->getAttribute('action_name');
 
     $actor = new \app\Actor($app_id);
-    $action = new \app\Action($actor);
+    $action = new \app\Action($actor, $action_name);
+
+    $db = new \app\DB();
+    $db->saveAction($action);
 
     $response->getBody()->write('app_id = ' . $app_id . '<br/>action_name = ' . $action_name);
 
