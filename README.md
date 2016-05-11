@@ -10,7 +10,12 @@ Available endpoints
 * **/save/{app_id}/{action_name}** - saves the action for app id
 * index page allows you to see list of registered apps
 
-Apps and their actions are registered automatically at the moment. 
+Apps and their actions are registered automatically at the moment.
+ 
+Project requirements
+--------------------
+* MongoDB
+* MongoClient php extension
 
 Plan
 ----
