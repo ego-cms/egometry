@@ -1,5 +1,5 @@
-Backend for GIFs application
-============================
+Simple telemetry web app
+========================
 To run the app, go the `public` directory and run `php -S localhost:3000`.
 
 The app will be available via `http://localhost:3000`.
