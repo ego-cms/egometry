@@ -1,3 +1,5 @@
+[![eGo-CMS](https://raw.githubusercontent.com/ego-cms/Resources/master/Badges_by_EGO/by_EGO.png)](http://ego-cms.com/?utm_source=github)
+
 Simple telemetry web app
 ========================
 To run the app, go the `public` directory and run `php -S localhost:3000`.
