@@ -1,0 +1,34 @@
+egometry_app:
+    build: ./application
+    volumes:
+        - ../app:/var/www/egometry
+
+egometry_nginx:
+    build: ./nginx
+    ports:
+        - "3000:80"
+    links:
+        - egometry_php-fpm
+    volumes_from:
+        - egometry_app
+
+egometry_php-fpm:
+    build: ./php-fpm
+    volumes_from:
+        - egometry_app
+    expose:
+        - "9000"
+    links:
+        - egometry_mongo
+
+egometry_mongo:
+    build: ./mongo
+    volumes_from:
+        - egometry_data
+    ports:
+        - "27017:27017"
+
+egometry_data:
+    build: ./data
+    volumes:
+        - ./db_data:/data/db

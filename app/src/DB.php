@@ -21,7 +21,7 @@ class DB
     public function __construct()
     {
         if ($this->instance == null) {
-            $this->instance = (new \MongoClient())->selectDB('gifs_backend');
+            $this->instance = (new \MongoDB\Client('mongodb://egometry_mongo/'))->selectDatabase('gifs_backend');
         }
 
         return $this->instance;
