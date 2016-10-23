@@ -14,15 +14,18 @@ Available endpoints
 * index page allows you to see list of registered apps
 
 Apps and their actions are registered automatically at the moment.
- 
-Project requirements
---------------------
-* MongoDB
-* MongoClient php extension
+
+Install and Run
+---------------
+
+- go to `docker` folder
+- run `docker-compose up -d --build`
+- go to `http://localhost:3000`
+
 
 Plan
 ----
-* migrate to Docker so anyone can easily run it
+* ~~migrate to Docker so anyone can easily run it~~
 * registration/login for users
 * each user should have ability to register an app
 * use generated token for app identification
