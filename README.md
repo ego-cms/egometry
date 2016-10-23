@@ -22,6 +22,7 @@ Project requirements
 
 Plan
 ----
+* migrate to Docker so anyone can easily run it
 * registration/login for users
 * each user should have ability to register an app
 * use generated token for app identification
