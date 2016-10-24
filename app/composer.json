@@ -8,6 +8,6 @@
   "require": {
     "slim/slim": "3.4.*",
 		"slim/php-view": "2.1.*",
-			"mongodb/mongodb": "^1.0.0"
+		"mongodb/mongodb": "^1.0.0"
   }
 }

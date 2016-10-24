@@ -30,7 +30,7 @@ class DB
     public function saveAction(Action $action)
     {
         $collection = $this->instance->selectCollection('actions');
-        $collection->update([
+        $collection->updateOne([
             'app_id' => $action->getActor()->getActorId(),
             'action_name' => $action->getActionName()
         ], [
@@ -68,8 +68,8 @@ class DB
             ]]
         ]);
 
-        if (!empty($data['result'])) {
-            return $data['result'];
+        if (!empty($data)) {
+            return $data;
         }
 
         return [];
