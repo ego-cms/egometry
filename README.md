@@ -3,9 +3,14 @@
 
 Simple telemetry web app
 ========================
-To run the app, go the `public` directory and run `php -S localhost:3000`.
 
-The app will be available via `http://localhost:3000`.
+Install and Run
+---------------
+
+- go to `docker` folder
+- run `docker-compose up -d --build`
+- go to `http://localhost:3000`
+
 
 Available endpoints
 -------------------
@@ -15,12 +20,7 @@ Available endpoints
 
 Apps and their actions are registered automatically at the moment.
 
-Install and Run
----------------
 
-- go to `docker` folder
-- run `docker-compose up -d --build`
-- go to `http://localhost:3000`
 
 
 Plan
