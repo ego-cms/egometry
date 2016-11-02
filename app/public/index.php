@@ -13,15 +13,21 @@ use Slim\Http\Response;
 
 $app = new Slim\App([
     'settings' => [
-        'displayErrorDetails' => true
+        'displayErrorDetails' => true // kind of debug=true
     ]
 ]);
 
+/**
+ * just register PhpRenderer and set path to our templates
+ */
 $container = $app->getContainer();
 $container['view'] = function ($container) {
     return new \Slim\Views\PhpRenderer(__DIR__ . '/../templates/');
 };
 
+/**
+  * return list of all applications available 
+ */
 $app->get('/', function (Request $request, Response $response) {
     $db = new \app\DB();
     return $this->view->render($response, 'list_of_apps.php', [
@@ -29,6 +35,9 @@ $app->get('/', function (Request $request, Response $response) {
     ]);
 });
 
+/**
+ * return statistic of actions for selected application
+ */
 $app->get('/get_stats_for/{app_name}', function (Request $request, Response $response) {
     $app_name = $request->getAttribute('app_name');
     $db = new \app\DB();
@@ -39,6 +48,9 @@ $app->get('/get_stats_for/{app_name}', function (Request $request, Response $res
     ]);
 });
 
+/**
+ * save new action
+ */
 $app->get('/save/{app_id}/{action_name}', function(Request $request, Response $response) {
     $app_id = $request->getAttribute('app_id');
     $action_name = $request->getAttribute('action_name');
